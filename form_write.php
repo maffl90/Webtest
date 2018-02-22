@@ -5,8 +5,9 @@
 	<head>
 		<title>Neues Rezept</title>
 		<script src="Zutaten_func.js"></script>
+		<link rel="stylesheet" href="kochbuch_style.css">
 		<!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
-		<style>
+		<!--<style>
 			body {
 				background-color: lightblue;
 				box-sizing: border-box;
@@ -32,7 +33,7 @@
 				display: inline-block;
 				text-align: center;
 			}
-			#all {
+			#all2 {
 				margin-top: 50px;
 				margin-left: 10%;
 				width: 80%;
@@ -89,7 +90,7 @@
 				float: left;	
 				min-width: 20%;
 			}
-		</style>
+		</style>-->
 		
 	</head>
 	
@@ -97,7 +98,7 @@
 		<br/>	
 		<h1>Neues Rezept hinzufügen</h1>
 			
-		<fieldset id="all">
+		<fieldset id="all2">
 			<legend style="font-size:22px;"><b>Daten eingeben</b></legend>
 			<form action="insert.php" method="post">
 				

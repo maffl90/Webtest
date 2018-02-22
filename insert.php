@@ -10,7 +10,8 @@
 	<head>
 		<title>Kochbuch</title>
 		<meta charset = "utf-8">
-		<style>
+		<link rel="stylesheet" href="kochbuch_style.css">
+		<!--<style>
 			body {
 				background-color: lightblue;
 			}
@@ -68,7 +69,7 @@
 				font-size: 1.5em;
 				text-align: center;
 			}
-		</style>
+		</style>-->
 		
 	</head>
 	

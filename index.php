@@ -6,8 +6,8 @@
 <html>
 	<head>
 		<title>Anmeldung</title>
-		
-		<style>
+		<link rel="stylesheet" href="kochbuch_style.css">
+		<!--<style>
 			body {
 				background-color: lightblue;
 			}
@@ -37,7 +37,7 @@
 				width: 20%;
 				height: 25%;
 			}
-			#button {
+			#button2 {
 				position: absolute;
 				left: 47%;
 				padding: 10px 20px;
@@ -48,7 +48,7 @@
 				text-align: center;
 				font-size: 1.3em;
 			}
-		</style>
+		</style>-->
 		
 	</head>
 	
@@ -63,7 +63,7 @@
 				<label id = "test" for = "Username">Benutzername:</label><input type="text" name="Username" required /><br/>
 				<label id = "test" for = "Password">Passwort:</label><input type="password" name="Password" required /><br/>					
 				
-				<input type="submit" value="Anmelden" id = "button"/>
+				<input type="submit" value="Anmelden" id = "button2"/>
 				<br/><br/><br/><br/><p id="linkguest">Weiter als <a href='main.php'>Gast</a></p>
 			</form>
 		</fieldset>

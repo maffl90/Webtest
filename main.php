@@ -27,7 +27,8 @@
 	<head>
 		<title>Marvs Kochbuch</title>
 		<meta charset = "utf-8">
-		<style>
+		<link rel="stylesheet" href="kochbuch_style.css">
+		<!--<style>
 			body {
 				background-color: lightblue;
 			}
@@ -95,7 +96,7 @@
 				text-align: center;
 				min-width: 13%;
 			}
-		</style>
+		</style>-->
 		
 	</head>
 	
