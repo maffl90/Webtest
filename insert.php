@@ -98,16 +98,22 @@
 				$einheitliste;
 				$zutatenliste;
 				foreach($_POST["Einheit"] as $counter){
+					if($counter == "")
+						break;
 					$einheitliste[] = $counter;
 				}	
 				
 				foreach($_POST["Zutat"] as $counter){
+					if($counter == "")
+						break;
 					$zutatenliste[] = $counter;
 				}	
 				
 				$i = 0;
 				$zutaten_DB = "";
 				foreach($_POST["Menge"] as $counter){
+					if($counter == "")
+						break;
 					if($i>0)
 						$zutaten_DB .= "<br/>";
 					$zutaten_DB .= $counter." ".$einheitliste[$i]." ".$zutatenliste[$i];
@@ -129,12 +135,16 @@
 				$insertS = $result;
 				//echo $sqlInsertSchritte;
 				
-				echo $insertR." ".$insertZ." ".$insertS;
-				
+				if($insertR && $insertS && $insertZ){
+					echo "<script> alert('Erfolgreich in eingetragen!');
+					window.location.replace('main.php'); </script>";
+				}	
+				else{
+					echo "<script> alert('Fehler bei der Eingabe!');
+					window.location.replace('form_write.php'); </script>";
+				}
 			}
-			else{
-				//return to other page
-			}
+
 		?>
 	</body>
 </html>
