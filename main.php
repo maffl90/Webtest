@@ -212,7 +212,7 @@
 					$result = mysqli_query($connection, $sqlSelect);
 					$row = mysqli_fetch_array($result); 
 					echo "<br/><br/><b style='font-size: 1.5em;'>Benötigte Zutaten:</b><br/><br/>
-							".$row["ZutatName"] ."<br/>";
+							".utf8_encode($row["ZutatName"]) ."<br/>";
 
 									
 					$sqlSelect = "SELECT Schritt FROM schritte WHERE RezeptID = " . $rezeptID . ";";	
@@ -220,10 +220,10 @@
 					$result = mysqli_query($connection, $sqlSelect);
 					$row = mysqli_fetch_array($result); 
 					
-					$anleitung = explode(".", $row["Schritt"]);
+					$anleitung = explode(".", utf8_encode($row["Schritt"]));
 					echo "<br/><br/><b style='font-size: 1.5em;'>Anleitung:</b><br/><br/>";
 					foreach($anleitung as $schritt){
-						if($schritt != "")
+						if($schritt != "" && $schritt != " ")
 							echo $schritt.".<br/>";
 					}
 					echo "</div>";						

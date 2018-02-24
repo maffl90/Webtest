@@ -83,14 +83,14 @@
 			//print_r ($_POST);
 			$sqlInsertRezepte = 
 			"INSERT INTO `rezepte` (`BenutzerID`, `RezeptName`, `Kategorie`, `Dauer`, `Schwierigkeit`, `freigeschaltet`, `deaktiviert`, `Datum`, `BenutzerName`) 
-			VALUES ('".$_SESSION["ben_id"]."', '".$_POST["Rezeptname"]."', '".$_POST["Kategorie"]."', 
-			'".$_POST["Dauer"]."', '".$_POST["Schwierigkeit"]."', '0', '0', '".date("Y-m-d")."', '".$_SESSION["ben_name"]."');";
+			VALUES ('".$_SESSION["ben_id"]."', '".utf8_decode($_POST["Rezeptname"])."', '".utf8_decode($_POST["Kategorie"])."', 
+			'".$_POST["Dauer"]."', '".$_POST["Schwierigkeit"]."', '0', '0', '".date("Y-m-d")."', '".utf8_decode($_SESSION["ben_name"])."');";
 			$result = mysqli_query($connection, $sqlInsertRezepte);
 			
 			$insertR = $result;
 			
 			if($insertR){
-				$sqlSelectRezeptID = "SELECT RezeptID FROM `rezepte` WHERE RezeptName = '".$_POST["Rezeptname"]."';";
+				$sqlSelectRezeptID = "SELECT RezeptID FROM `rezepte` WHERE RezeptName = '".utf8_decode($_POST["Rezeptname"])."';";
 				$result = mysqli_query($connection, $sqlSelectRezeptID);	
 				$row 	= mysqli_fetch_array($result);
 				$rID 	= $row["RezeptID"];
@@ -101,15 +101,16 @@
 				foreach($_POST["Einheit"] as $counter){
 					if($counter == "")
 						break;
-					$einheitliste[] = $counter;
+					$einheitliste[] = utf8_decode($counter);
 				}	
 				
 				foreach($_POST["Zutat"] as $counter){
 					if($counter == "")
 						break;
-					$zutatenliste[] = $counter;
+					$zutatenliste[] = utf8_decode($counter);
 				}	
 				
+			
 				$i = 0;
 				$zutaten_DB = "";
 				foreach($_POST["Menge"] as $counter){
@@ -117,7 +118,7 @@
 						break;
 					if($i>0)
 						$zutaten_DB .= "<br/>";
-					$zutaten_DB .= $counter." ".$einheitliste[$i]." ".$zutatenliste[$i];
+					$zutaten_DB .= utf8_decode($counter)." ".$einheitliste[$i]." ".$zutatenliste[$i];
 					$i++;
 				}
 				//echo $zutaten_DB;
@@ -131,13 +132,13 @@
 				//echo $sqlInsertZutaten;
 				
 				$sqlInsertSchritte = "INSERT INTO `schritte` (RezeptID, Schritt)
-								VALUES ('".$rID."' ,'".$_POST["anleitung"]."');";
+								VALUES ('".$rID."' ,'".utf8_decode($_POST["anleitung"])."');";
 				$result = mysqli_query($connection, $sqlInsertSchritte);	
 				$insertS = $result;
 				//echo $sqlInsertSchritte;
 				
 				if($insertR && $insertS && $insertZ){
-					echo "<script> alert('Erfolgreich in eingetragen!');
+					echo "<script> alert('Erfolgreich eingetragen!');
 					window.location.replace('main.php'); </script>";
 				}	
 				else{
